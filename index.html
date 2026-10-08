@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ÖNİZLEME: canlıya (seyyah.info) geçerken bu satırı kaldırın. Bkz. README -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Seyyah — Türkiye'yi Keşfet. Her Check-in Bir Anı.</title>
+  <meta name="description" content="Seyyah, gerçek dünyadaki maceralarını anılara dönüştürür: GPS doğrulamalı check-in'ler, 45 toplanabilir etiket, günlük seriler, Müdavim sistemi ve Türkiye'nin 81 ilinde sosyal keşif.">
+  <link rel="canonical" href="https://seyyah.info/">
+  <meta name="theme-color" content="#faf8f3">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="Seyyah">
+  <meta property="og:title" content="Seyyah — Türkiye'yi Keşfet. Her Check-in Bir Anı.">
+  <meta property="og:description" content="Gerçek mekanlar. Gerçek insanlar. Gerçek anılar. GPS doğrulamalı check-in'ler, toplanabilir etiketler, günlük seriler ve sosyal keşif.">
+  <meta property="og:url" content="https://seyyah.info/">
+  <meta property="og:image" content="https://seyyah.info/assets/icon.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduced');</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Seyyah","operatingSystem":"iOS, Android","applicationCategory":"TravelApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"publisher":{"@type":"Organization","name":"Candemsoft"},"url":"https://seyyah.info/"}</script>
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+
+<!-- Ortak SVG tanımları: el çizimi filtre, tarama desenleri, semboller -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#1f4fbf" stroke-width="1.3" stroke-opacity=".55"/>
+    </pattern>
+    <pattern id="hatch-x" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#1f4fbf" stroke-width="1.1" stroke-opacity=".5"/>
+      <line x1="0" y1="3" x2="6" y2="3" stroke="#1f4fbf" stroke-width="1.1" stroke-opacity=".5"/>
+    </pattern>
+    <!-- logo motifi: sağ ayak izi (başparmak sağda) -->
+    <symbol id="foot-r" viewBox="0 0 40 62">
+      <path d="M15 60C6.5 58.5 4 48 6.8 37.5 8.6 30.8 8 24 11.6 18.8 15.6 13 26 12.6 30.2 19 34.2 25.2 32.4 33.6 30.2 41.6 27.8 50.6 24.4 61.4 15 60Z" fill="url(#hatch)" stroke="#1f4fbf" stroke-width="2"/>
+      <ellipse cx="29.5" cy="7.6" rx="5.2" ry="6.6" fill="#1f4fbf"/>
+      <circle cx="20.4" cy="5.4" r="3.4" fill="#1f4fbf"/>
+      <circle cx="13.2" cy="7.6" r="2.9" fill="#1f4fbf"/>
+      <circle cx="7.4" cy="12" r="2.4" fill="#1f4fbf"/>
+    </symbol>
+    <symbol id="foot-l" viewBox="0 0 40 62"><use href="#foot-r" transform="translate(40 0) scale(-1 1)"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.6 7-12.2A7 7 0 0 0 5 9.8C5 15.4 12 22 12 22Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9.6" r="2.6" fill="currentColor"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.5 11h7M8.5 14.5h7M8.5 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-dir" viewBox="0 0 24 24"><path d="M12 2.8 21.2 12 12 21.2 2.8 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 14v-2.4c0-.9.6-1.4 1.4-1.4H15m-2-2 2 2-2 2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.4S3.6 15.2 3.6 9.1A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 8.4 2.1c0 6.1-8.4 11.3-8.4 11.3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-crown" viewBox="0 0 48 40"><path d="M6 32 3.5 10.5l11 8.5L24 4l9.5 15 11-8.5L42 32Z" fill="url(#hatch)" stroke="#1f4fbf" stroke-width="2.4" stroke-linejoin="round"/><path d="M7 37.5h34" stroke="#1f4fbf" stroke-width="2.6" stroke-linecap="round"/><circle cx="24" cy="4" r="2.6" fill="#1f4fbf"/><circle cx="3.5" cy="10.5" r="2.4" fill="#1f4fbf"/><circle cx="44.5" cy="10.5" r="2.4" fill="#1f4fbf"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-4.2ZM14 5.3c.7-.8 1.1-1.9 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M4.2 2.6c-.3.3-.4.7-.4 1.2v16.4c0 .5.1.9.4 1.2l9.3-9.4ZM14.6 13.1 4.9 22.1c.3.1.8 0 1.2-.2l10.9-6.2ZM17 8.2 6.1 2.1c-.4-.2-.9-.3-1.2-.2l9.7 9Zm4.1 2.4-3-1.7-2.6 2.6 2.6 2.6 3-1.7c.9-.5.9-1.3 0-1.8Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="./" aria-label="Seyyah ana sayfa">
+      <img src="assets/icon.png" alt="" width="36" height="36">Seyyah
+    </a>
+    <ul class="nav-links">
+      <li><a class="u-draw" href="#nasil">Nasıl Çalışır</a></li>
+      <li><a class="u-draw" href="#mekan">Mekan Sayfası</a></li>
+      <li><a class="u-draw" href="#etiketler">Etiketler</a></li>
+      <li><a class="u-draw" href="#kesfet">Keşfet</a></li>
+      <li><a class="u-draw" href="#sss">SSS</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="#indir">Uygulamayı İndir</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="ink" d="M4 7c5-.6 11-.4 16 0M4 12.2c6-.5 10-.3 16 .1M4 17.3c4-.4 11-.4 16-.1"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobil menü">
+    <a href="#nasil">Nasıl Çalışır</a>
+    <a href="#mekan">Mekan Sayfası</a>
+    <a href="#etiketler">Etiketler</a>
+    <a href="#seri">Günlük Seri</a>
+    <a href="#kesfet">Türkiye'yi Keşfet</a>
+    <a href="#sss">SSS</a>
+    <a class="btn btn-primary" href="#indir">Uygulamayı İndir</a>
+  </nav>
+</header>
+
+<main id="icerik">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Seyyah · Gerçek Dünya Keşfi</p>
+      <h1>Türkiye'yi keşfet.<span class="hand"><span class="u-always">Her check-in</span> bir anı.</span></h1>
+      <p class="lead">Seyyah, gerçek dünyadaki maceralarını unutulmaz anılara dönüştürür — GPS doğrulamalı check-in'ler, toplanabilir etiketler, sosyal keşif ve asla taklit edemeyeceğin deneyimler.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#indir">Seyyah'ı İndir</a>
+        <a class="btn btn-ghost" href="#nasil">Nasıl Çalışır</a>
+      </div>
+      <ul class="hero-stats" aria-label="Seyyah kısaca">
+        <li><strong data-count="81">81</strong><span>İl</span></li>
+        <li><strong data-count="45">45</strong><span>Toplanabilir etiket</span></li>
+        <li><strong>GPS</strong><span>Her check-in doğrulanır</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="paper notebook">
+        <svg class="hero-svg draw" viewBox="0 0 480 360">
+          <defs>
+            <clipPath id="write-clip"><rect id="writeRect" x="0" y="0" width="480" height="90"/></clipPath>
+            <mask id="hero-route-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="360">
+              <path data-draw class="hero-route-reveal" d="M58 300C120 296 140 250 190 236S262 236 300 210 360 168 412 160" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+            </mask>
+          </defs>
+          <g clip-path="url(#write-clip)">
+            <text class="hero-word" x="18" y="62" font-size="50">Keşfet · Kaydet · Hatırla</text>
+          </g>
+          <path data-draw class="ink" d="M20 80c70-6 160-9 250-4s130 2 190-3" stroke-width="2.6"/>
+          <!-- kesikli rota -->
+          <g mask="url(#hero-route-mask)">
+            <path class="ink ink-dash" d="M58 300C120 296 140 250 190 236S262 236 300 210 360 168 412 160" stroke-width="3.4"/>
+          </g>
+          <!-- pinler -->
+          <g class="hero-pin" transform="translate(40 262)"><path class="ink" d="M18 40s14-13 14-24a14 14 0 0 0-28 0c0 11 14 24 14 24Z" fill="#fff"/><circle cx="18" cy="16" r="5" class="ink-fill"/></g>
+          <g class="hero-pin" transform="translate(172 196)"><path class="ink" d="M18 40s14-13 14-24a14 14 0 0 0-28 0c0 11 14 24 14 24Z" fill="#fff"/><circle cx="18" cy="16" r="5" class="ink-fill"/></g>
+          <g class="hero-pin" transform="translate(394 120)"><path class="ink" d="M18 40s14-13 14-24a14 14 0 0 0-28 0c0 11 14 24 14 24Z" fill="url(#hatch)"/><circle cx="18" cy="16" r="5" class="ink-fill"/></g>
+          <text x="22" y="340" class="hero-word" font-size="24">sabah kahvesi</text>
+          <text x="150" y="282" class="hero-word" font-size="24">eski çarşı</text>
+          <text x="300" y="132" class="hero-word" font-size="24">gün batımı ★</text>
+          <!-- GPS onay damgası -->
+          <g transform="translate(206 104) rotate(-10)">
+            <circle data-draw class="ink" cx="44" cy="44" r="40" stroke-width="2.4"/>
+            <circle data-draw class="ink ink-thin" cx="44" cy="44" r="33"/>
+            <path data-draw class="ink" d="M27 45l11 11 23-25" stroke-width="4"/>
+            <text x="44" y="78" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="9" fill="#1f4fbf" letter-spacing="2">GPS ✓</text>
+          </g>
+          <!-- küçük ayak izleri -->
+          <use href="#foot-l" x="92" y="300" width="14" height="22" transform="rotate(70 99 311)"/>
+          <use href="#foot-r" x="112" y="286" width="14" height="22" transform="rotate(70 119 297)"/>
+          <use href="#foot-l" x="134" y="282" width="14" height="22" transform="rotate(60 141 293)"/>
+        </svg>
+      </div>
+      <figure class="hero-polaroid">
+        <div class="sketch" style="aspect-ratio:1" data-sketch="galata">
+          <img src="assets/photos/galata.webp" alt="" width="300" height="300" loading="eager" fetchpriority="low">
+        </div>
+        <figcaption>Galata, 09:12</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<svg class="trail" data-trail viewBox="0 0 520 120" aria-hidden="true"></svg>
+
+<!-- ============ ŞU AN YAŞANIYOR ============ -->
+<section class="section" id="canli" aria-labelledby="canli-baslik">
+  <div class="wrap live-grid">
+    <div class="section-head" style="margin-bottom:0">
+      <p class="eyebrow"><span class="live-pulse" aria-hidden="true"></span>Şu An Yaşanıyor</p>
+      <h2 id="canli-baslik">Türkiye'nin bir yerinde, <span class="hand">biri az önce vardı.</span></h2>
+      <p class="lead">Seyyah'ta her hareket gerçek bir yerde başlar. Kâğıt notlar gibi düşen bu satırlar, uygulamadaki arkadaş akışının nasıl göründüğünü anlatıyor.</p>
+      <div class="live-controls">
+        <button class="chip-btn" id="livePause" type="button" aria-pressed="false">❚❚ Akışı durdur</button>
+      </div>
+      <p class="sample-note">Bu alandaki veriler örnektir.</p>
+    </div>
+    <div class="live-stack" id="liveStack">
+      <article class="live-note"><span class="avatar" aria-hidden="true">A</span><p>Ahmet <b>Kapadokya</b>'da check-in yaptı</p><small>Göreme, Nevşehir · 2 dk önce</small></article>
+      <article class="live-note"><span class="avatar" aria-hidden="true">E</span><p>Elif <b>Pamukkale</b>'yi ziyaret etti</p><small>Denizli · 6 dk önce</small></article>
+      <article class="live-note"><span class="avatar" aria-hidden="true">M</span><p>Mehmet <b>Mardin</b>'i keşfetti</p><small>Eski Şehir · 11 dk önce</small></article>
+    </div>
+  </div>
+</section>
+
+<svg class="trail" data-trail viewBox="0 0 520 120" aria-hidden="true"></svg>
+
+<!-- ============ NEDEN SEYYAH ============ -->
+<section class="section" id="neden" aria-labelledby="neden-baslik">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Neden Seyyah</p>
+      <h2 id="neden-baslik">Gerçekten bir yere gidenler <span class="hand">için tasarlandı.</span></h2>
+      <p class="lead">Sahte check-in yok. Sanal keşif yok. Anlamsız kaydırma yok — sadece gerçek mekanlar, gerçek insanlar ve gerçek anılar.</p>
+    </div>
+    <div class="why-grid">
+      <article class="paper why-card" data-reveal>
+        <svg class="draw wobble" viewBox="0 0 72 72" aria-hidden="true">
+          <ellipse data-draw class="ink ink-thin" cx="36" cy="60" rx="24" ry="7"/>
+          <ellipse data-draw class="ink ink-thin" cx="36" cy="60" rx="13" ry="3.6"/>
+          <path data-draw class="ink" d="M36 58S18 40 18 27a18 18 0 0 1 36 0c0 13-18 31-18 31Z"/>
+          <path data-draw class="ink" d="M28 27l6 6 11-12" stroke-width="3"/>
+        </svg>
+        <h3>GPS Doğrulamalı Check-in</h3>
+        <p>Her ziyaret gerçek konumunla doğrulanır — kısayol yok, hile yok, sadece orada gerçekten bulunduğunun kanıtı.</p>
+      </article>
+      <article class="paper why-card" data-reveal>
+        <svg class="draw wobble" viewBox="0 0 72 72" aria-hidden="true">
+          <path data-draw class="ink" d="M36 6c4 3 8 2 11 5s2 7 5 10 7 4 8 9-2 7-2 11 3 7 0 11-7 3-10 6-4 8-9 8-7-4-11-4-8 3-11 0-2-7-5-10-8-4-8-9 4-7 4-11-3-8 0-12 7-2 11-5 5-9 8-9Z"/>
+          <path data-draw class="ink" d="M36 22l4.6 9.6 10.4 1.4-7.6 7.2 1.9 10.4L36 45.6l-9.3 5 1.9-10.4-7.6-7.2 10.4-1.4Z" stroke-width="2.4"/>
+          <path data-draw class="ink ink-thin" d="M58 6v8M54 10h8"/>
+        </svg>
+        <h3>Güzel Etiketler Topla</h3>
+        <p>Her mekanın, her saatin, her kilometre taşının kendine özgü el yapımı bir etiketi var — nadir olanlar koleksiyonunda hafifçe parlar.</p>
+      </article>
+      <article class="paper why-card" data-reveal>
+        <svg class="draw wobble" viewBox="0 0 72 72" aria-hidden="true">
+          <path data-draw class="ink" d="M36 66c-13 0-21-8-21-19 0-12 10-17 12-30 6 4 9 10 9 15 3-3 5-8 4-14 10 6 17 17 17 29 0 11-8 19-21 19Z"/>
+          <path data-draw class="ink ink-thin" d="M36 60c-6 0-9-4-9-8 0-5 4-7 6-12 4 3 5 6 5 8 2-1 3-3 3-5 3 3 4 6 4 9 0 5-4 8-9 8Z"/>
+        </svg>
+        <h3>Günlük Seri Oluştur</h3>
+        <p>Günde bir check-in, momentumu canlı tutar. İşler yoğunlaşırsa bir günü dondur — serin seni korur.</p>
+      </article>
+      <article class="paper why-card" data-reveal>
+        <svg class="draw wobble" viewBox="0 0 72 72" aria-hidden="true">
+          <circle data-draw class="ink" cx="30" cy="30" r="20"/>
+          <path data-draw class="ink" d="M45 45l17 17" stroke-width="4"/>
+          <path class="ink ink-thin ink-dash" d="M16 36c6-2 9-10 15-11s8 5 13 3"/>
+          <path data-draw class="ink" d="M30 19s-6 5.6-6 10.2a6 6 0 0 0 12 0C36 24.6 30 19 30 19Z" stroke-width="1.8"/>
+        </svg>
+        <h3>Gizli Kalmış Yerleri Keşfet</h3>
+        <p>Ören yerlerinden kimsenin bilmediği kafeye kadar — gitmeye gerçekten değer olanı, sana yakın olanı bul.</p>
+      </article>
+    </div>
+    <p class="slogan-line hand">Gittiğin yer, <span class="u-always">senin hikâyenin</span> bir parçası.</p>
+  </div>
+</section>
+
+<!-- ============ HAFTA SONU ROTASI ============ -->
+<section class="section" id="rota" aria-labelledby="rota-baslik">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Bir Hafta Sonu Rotası</p>
+      <h2 id="rota-baslik">İstanbul'dan Kapadokya'ya, <span class="hand">her durak doğrulanmış.</span></h2>
+      <p class="lead">Gitmek istediğin mekanları <strong>Rotaya Ekle</strong> ile Benim Rotam'a koy. Vardığın her yerde <strong>Buradayım</strong>'a dokun; GPS doğrular, rotandaki adım tamamlanır.</p>
+    </div>
+    <div class="route-wrap">
+      <div class="paper route-map" id="routeMap">
+        <svg viewBox="-10 -70 1027 610" role="img" aria-label="Türkiye haritası üzerinde İstanbul, Eskişehir ve Kapadokya arasında çizilen örnek rota">
+          <g class="route-base"></g>
+          <g class="route-draw"></g>
+        </svg>
+        <div class="stamp route-stamp" id="routeStamp" aria-hidden="true"><div><small>Rota tamam</small><b>Kapadokya</b><span>★★★</span></div></div>
+      </div>
+      <ol class="route-stops" id="routeStops">
+        <li class="paper route-stop" data-reveal>
+          <span class="when">Cumartesi · 09:12</span>
+          <h3>Galata Kulesi, İstanbul</h3>
+          <p>Güne kuleyle başla. İlk check-in, ilk etiket.</p>
+          <span class="gps">✓ GPS doğruladı</span>
+        </li>
+        <li class="paper route-stop" data-reveal>
+          <span class="when">Cumartesi · 15:40</span>
+          <h3>Odunpazarı, Eskişehir</h3>
+          <p>Renkli evler arasında yürüyüş. Rotandaki 2. adımı tamamladın — 1 mekan kaldı.</p>
+          <span class="gps">✓ GPS doğruladı</span>
+        </li>
+        <li class="paper route-stop" data-reveal>
+          <span class="when">Pazar · 06:05</span>
+          <h3>Göreme, Kapadokya</h3>
+          <p>Gün doğarken balonlar havada. 06:00–10:00 arası check-in: <em>Erken Kuş</em> etiketi senin.</p>
+          <span class="gps">✓ GPS doğruladı</span>
+        </li>
+      </ol>
+    </div>
+    <p class="sample-note">Örnek rota — saatler ve duraklar temsilidir.</p>
+  </div>
+</section>
+
+<svg class="trail" data-trail viewBox="0 0 520 120" aria-hidden="true"></svg>
+
+<!-- ============ NASIL ÇALIŞIR ============ -->
+<section class="section" id="nasil" aria-labelledby="nasil-baslik">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Nasıl Çalışır</p>
+      <h2 id="nasil-baslik">Haritadaki bir noktadan, <span class="hand">cebindeki bir anıya.</span></h2>
+    </div>
+    <div class="how-grid">
+      <ol class="steps">
+        <li class="step" data-reveal><span class="step-num">1<svg class="draw" viewBox="0 0 46 46" aria-hidden="true"><path data-draw class="ink" d="M24 3C12 2 3 11 3.5 23S13 44 24 43.5 43.6 34 43 22 34 3.4 21 4.5"/></svg></span><div><h3>Bir mekan seç</h3><p>Yakınındaki yerlere göz at ya da Türkiye'nin her yerinde ara — kafeler, ören yerleri, manzara noktaları, gizli köşeler.</p></div></li>
+        <li class="step" data-reveal><span class="step-num">2<svg class="draw" viewBox="0 0 46 46" aria-hidden="true"><path data-draw class="ink" d="M22 3.5C10 4 3 13 3.6 24S14 43.6 25 43 43 33 42.6 21 32 2.8 19 5"/></svg></span><div><h3>Fiziksel olarak git</h3><p>Uygulamayı kapat. Yürü, araba kullan ya da yürüyüş yap, gerçek mekana ulaş. Bu kısım gerçek dünyada geçer.</p></div></li>
+        <li class="step" data-reveal><span class="step-num">3<svg class="draw" viewBox="0 0 46 46" aria-hidden="true"><path data-draw class="ink" d="M24 3C12 2 3 11 3.5 23S13 44 24 43.5 43.6 34 43 22 34 3.4 21 4.5"/></svg></span><div><h3>GPS'in seni doğrular</h3><p>Seyyah, check-in yapmana izin vermeden önce gerçekten orada olduğunu onaylar — hile yok, istisna yok.</p></div></li>
+        <li class="step" data-reveal><span class="step-num">4<svg class="draw" viewBox="0 0 46 46" aria-hidden="true"><path data-draw class="ink" d="M22 3.5C10 4 3 13 3.6 24S14 43.6 25 43 43 33 42.6 21 32 2.8 19 5"/></svg></span><div><h3>Check-in yap</h3><p>İstersen not ya da fotoğraf ekle, istersen sade ve gizli tut. Tek dokunuş yeter, resmileşir.</p></div></li>
+        <li class="step" data-reveal><span class="step-num">5<svg class="draw" viewBox="0 0 46 46" aria-hidden="true"><path data-draw class="ink" d="M24 3C12 2 3 11 3.5 23S13 44 24 43.5 43.6 34 43 22 34 3.4 21 4.5"/></svg></span><div><h3>Bir etiket topla</h3><p>Her check-in sana güzel bir şey kazandırır — mekana, günün saatine ya da az önce ulaştığın bir kilometre taşına bağlı.</p></div></li>
+        <li class="step" data-reveal><span class="step-num">6<svg class="draw" viewBox="0 0 46 46" aria-hidden="true"><path data-draw class="ink" d="M22 3.5C10 4 3 13 3.6 24S14 43.6 25 43 43 33 42.6 21 32 2.8 19 5"/></svg></span><div><h3>Deneyimini paylaş</h3><p>Arkadaşların nerede olduğunu görsün, sen de onlarınkini takip et. Bir sonraki durağını reklamlarla değil, insanlarla keşfet.</p></div></li>
+      </ol>
+
+      <div class="how-sim">
+        <div class="paper sim" id="sim" data-state="idle">
+          <div class="sim-head">
+            <div><h3>Galata Kulesi</h3><small>Beyoğlu, İstanbul</small></div>
+            <span class="mono" style="color:var(--ink)">Dene</span>
+          </div>
+          <div class="sim-radar" aria-hidden="true">
+            <svg viewBox="0 0 220 220">
+              <circle cx="110" cy="110" r="104" fill="none" stroke="rgba(31,79,191,.25)" stroke-width="1.5" stroke-dasharray="3 7"/>
+              <circle cx="110" cy="110" r="64" fill="none" stroke="rgba(31,79,191,.2)" stroke-width="1.5" stroke-dasharray="3 7"/>
+              <circle class="sim-ring" cx="110" cy="110" r="100"/>
+              <circle class="sim-ring" cx="110" cy="110" r="100"/>
+              <circle class="sim-ring" cx="110" cy="110" r="100"/>
+              <g transform="translate(86 62)"><path class="ink" d="M24 54s19-17 19-32a19 19 0 0 0-38 0c0 15 19 32 19 32Z" fill="#fff" stroke-width="2.6"/><circle cx="24" cy="22" r="7" class="ink-fill"/></g>
+              <g class="sim-check"><circle cx="160" cy="62" r="22" fill="#1f4fbf"/><path d="M149 62l8 8 15-16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+            </svg>
+          </div>
+          <p class="sim-status" id="simStatus" aria-live="polite">Mekana 120 m uzaklıktasın<small>Check-in için konumunu doğrula.</small></p>
+          <div class="sim-reward" id="simReward">
+            <span class="mono">Yeni Etiket</span>
+            <img src="assets/stickers/first_checkin.webp" alt="İlk Check-in etiketi" width="150" height="150" loading="lazy">
+            <h4>İlk Check-in</h4>
+            <p class="muted" style="margin:0">İlk check-in'ini yaptın!</p>
+          </div>
+          <button class="btn btn-primary" id="simBtn" type="button"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Buradayım</span></button>
+          <p class="sim-foot">Bu bir simülasyondur; gerçek check-in uygulamada GPS ile yapılır.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEKAN SAYFASI ============ -->
+<section class="section" id="mekan" aria-labelledby="mekan-baslik">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Mekan Sayfası</p>
+      <h2 id="mekan-baslik">Bir mekana dokun, <span class="hand">her şey bir arada.</span></h2>
+      <p class="lead">Check-in, kendine not, yol tarifi ve favoriler aynı ekranda. Kimin Müdavim olduğunu, buraya kaç Seyyah'ın gerçekten gittiğini de görürsün.</p>
+    </div>
+    <div class="place-grid">
+      <div class="phone-stage" id="phoneStage">
+        <div class="phone" role="img" aria-label="Seyyah mekan ekranı çizimi: Galata Kulesi; Buradayım, Özel Not, Yol Tarifi ve Favorile butonları, Müdavim kartı ve topluluk ziyaretçisi sayısı">
+          <div class="screen" aria-hidden="true">
+            <div class="sketch screen-hero"><img src="assets/photos/galata.webp" alt="" width="400" height="260" loading="lazy"></div>
+            <div class="screen-body">
+              <div class="screen-title"><h4>Galata Kulesi</h4><span class="badge-open" data-annot="open">Açık</span></div>
+              <p class="screen-meta">Beyoğlu, İstanbul · 650 m</p>
+              <div class="actions">
+                <span class="action a-here" data-annot="here"><svg><use href="#i-pin"/></svg>Buradayım</span>
+                <span class="action a-note" data-annot="note"><svg><use href="#i-note"/></svg>Özel Not</span>
+                <span class="action a-dir" data-annot="dir"><svg><use href="#i-dir"/></svg>Yol Tarifi</span>
+                <span class="action a-fav" data-annot="fav"><svg><use href="#i-heart"/></svg>Favorile</span>
+              </div>
+              <div class="mayor" data-annot="mayor"><svg viewBox="0 0 48 40"><use href="#i-crown"/></svg><div><b>MÜDAVİM</b><span>Selin · 9 check-in</span></div></div>
+              <div class="stats-row">
+                <div data-annot="visitors"><b>1.284</b><span>Topluluk ziyaretçisi</span></div>
+                <div><b>37</b><span>Bu hafta</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <svg class="annot-svg draw" id="annotSvg" aria-hidden="true"></svg>
+        <p class="annot" data-for="here" style="left:0;top:44%">Buradayım: mekana ~200 m yakınsan açılır</p>
+        <p class="annot" data-for="mayor" style="left:0;top:62%">Müdavim: son 30 günde en çok check-in yapan 👑</p>
+        <p class="annot note-c" data-for="note" data-anchor="top" style="left:0;top:16%">Özel Not: sadece sen görürsün</p>
+        <p class="annot" data-for="dir" data-anchor="top" style="right:0;top:10%;text-align:right">Yol Tarifi: harita uygulamanı seç, yola çık</p>
+        <p class="annot fav-c" data-for="fav" style="right:0;top:52%;text-align:right">Favorile: sonra dönmek için ♥</p>
+        <p class="annot" data-for="visitors" style="left:0;top:80%">Topluluk ziyaretçisi: buraya gerçekten gidenler</p>
+        <p class="annot" data-for="open" style="right:0;top:31%;text-align:right">Şu an açık mı, bir bakışta</p>
+        <ul class="annot-list">
+          <li>Buradayım: mekana ~200 m yakınsan açılır</li>
+          <li class="note-c">Özel Not: sadece sen görürsün</li>
+          <li>Yol Tarifi: harita uygulamanı seç, yola çık</li>
+          <li class="fav-c">Favorile: sonra dönmek için ♥</li>
+          <li>Müdavim: son 30 günde en çok check-in yapan 👑</li>
+          <li>Topluluk ziyaretçisi: buraya gerçekten gidenler</li>
+        </ul>
+        <p class="sample-note" style="display:flex;justify-content:center">Örnek ekran — isim ve sayılar temsilidir.</p>
+      </div>
+
+      <div class="feature-list">
+        <article class="paper feature note-f" data-reveal>
+          <svg viewBox="0 0 24 24" style="color:var(--note)" aria-hidden="true"><use href="#i-note"/></svg>
+          <div><h3>Özel Not</h3><p>Bir mekana kendin için not bırak: en sevdiğin masa, siparişin, bir dahaki sefere hatırlatma. Bu not sadece sana özel, kimseyle paylaşılmaz.</p></div>
+        </article>
+        <article class="paper feature" data-reveal>
+          <svg viewBox="0 0 24 24" style="color:var(--ink)" aria-hidden="true"><use href="#i-dir"/></svg>
+          <div><h3>Yol Tarifi</h3><p>Tek dokunuşla harita uygulamanı seç, mekana nasıl gideceğini hemen gör.</p></div>
+        </article>
+        <article class="paper feature fav-f" data-reveal>
+          <svg viewBox="0 0 24 24" style="color:var(--fav)" aria-hidden="true"><use href="#i-heart"/></svg>
+          <div><h3>Favoriler</h3><p>Kalbe dokun, mekan profilindeki Favoriler'ine eklensin. Tekrar dönmek istediğin yerler tek listede.</p></div>
+        </article>
+        <article class="paper feature" data-reveal>
+          <svg viewBox="0 0 48 40" aria-hidden="true"><use href="#i-crown"/></svg>
+          <div><h3>Müdavim</h3><p>Son 30 günde bir mekana en çok check-in yapan kişi o mekanın Müdavimi olur. Profilinde "Müdavim Olduğun Yerler" listelenir.</p></div>
+        </article>
+        <article class="paper feature" data-reveal>
+          <svg viewBox="0 0 24 24" style="color:var(--ink)" aria-hidden="true"><path d="M4 19c4 0 4-6 8-6s4-6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 4"/><circle cx="4" cy="19" r="2.4" fill="currentColor"/><circle cx="20" cy="7" r="2.4" fill="currentColor"/></svg>
+          <div><h3>Rotaya Ekle</h3><p>Gitmek istediğin mekanları Benim Rotam'a ekle; her check-in'de rotandaki bir adımı tamamla, kaç mekan kaldığını gör.</p></div>
+        </article>
+        <article class="paper feature" data-reveal>
+          <svg viewBox="0 0 24 24" style="color:var(--ink)" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <div><h3>Gizli Check-in</h3><p>Bazı anlar sadece senin. Gizli check-in sadece sende görünür, akışa düşmez.</p></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="trail" data-trail viewBox="0 0 520 120" aria-hidden="true"></svg>
+
+<!-- ============ ETİKET DEFTERİ ============ -->
+<section class="section" id="etiketler" aria-labelledby="etiket-baslik">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Etiket Defteri</p>
+      <h2 id="etiket-baslik">Gerçekten kazandığın <span class="hand">bir koleksiyon.</span></h2>
+      <p class="lead center">Üç nadirlik seviyesinde 45 el çizimi etiket. Bazıları tek ziyaretle geliyor — bazıları için gerçekten emek vermen gerekiyor. Bir etikete dokun, nasıl kazanıldığını gör.</p>
+    </div>
+    <div class="paper sticker-book">
+      <ul class="sticker-grid" id="stickerGrid">
+        <li><button class="sticker" type="button" data-rarity="rare" data-desc="17:00–20:00 arasında check-in yaptın." aria-expanded="false" aria-controls="stickerDetail" style="--tape:-6deg;--tilt:-4deg"><img src="assets/stickers/sunset_chaser.webp" alt="" width="132" height="132" loading="lazy"><h3>Gün Batımı Avcısı</h3><span class="rarity r-rare">Nadir</span></button></li>
+        <li><button class="sticker" type="button" data-rarity="common" data-desc="06:00–10:00 arasında check-in yaptın." aria-expanded="false" aria-controls="stickerDetail" style="--tape:5deg;--tilt:3deg"><img src="assets/stickers/early_bird.webp" alt="" width="132" height="132" loading="lazy"><h3>Erken Kuş</h3><span class="rarity r-common">Yaygın</span></button></li>
+        <li><button class="sticker" type="button" data-rarity="epic" data-desc="Aynı mekanda 5 kez check-in yaptın." aria-expanded="false" aria-controls="stickerDetail" style="--tape:-3deg;--tilt:-2deg"><img src="assets/stickers/loyal_regular.webp" alt="" width="132" height="132" loading="lazy"><h3>Müdavim</h3><span class="rarity r-epic">Efsane</span></button></li>
+        <li><button class="sticker" type="button" data-rarity="common" data-desc="21:00–00:00 arasında check-in yaptın." aria-expanded="false" aria-controls="stickerDetail" style="--tape:7deg;--tilt:4deg"><img src="assets/stickers/night_rider.webp" alt="" width="132" height="132" loading="lazy"><h3>Gece Sürücüsü</h3><span class="rarity r-common">Yaygın</span></button></li>
+        <li><button class="sticker" type="button" data-rarity="rare" data-desc="5 farklı semt keşfettin. Şehri tanıyorsun!" aria-expanded="false" aria-controls="stickerDetail" style="--tape:4deg;--tilt:3deg"><img src="assets/stickers/area_explorer.webp" alt="" width="132" height="132" loading="lazy"><h3>Bölge Kaşifi</h3><span class="rarity r-rare">Nadir</span></button></li>
+        <li><button class="sticker" type="button" data-rarity="common" data-desc="Bir kafede check-in yaptın." aria-expanded="false" aria-controls="stickerDetail" style="--tape:-5deg;--tilt:-3deg"><img src="assets/stickers/cafe_lover.webp" alt="" width="132" height="132" loading="lazy"><h3>Kahve Aşığı</h3><span class="rarity r-common">Yaygın</span></button></li>
+        <li><button class="sticker" type="button" data-rarity="epic" data-desc="100 günlük seri! Seyyah dünyasının zirvesi." aria-expanded="false" aria-controls="stickerDetail" style="--tape:3deg;--tilt:2deg"><img src="assets/stickers/streak_100.webp" alt="" width="132" height="132" loading="lazy"><h3>100 Günlük Seri</h3><span class="rarity r-epic">Efsane</span></button></li>
+        <li><button class="sticker" type="button" data-rarity="common" data-desc="İlk check-in'ini yaptın! Her şey burada başlıyor." aria-expanded="false" aria-controls="stickerDetail" style="--tape:-7deg;--tilt:-4deg"><img src="assets/stickers/first_checkin.webp" alt="" width="132" height="132" loading="lazy"><h3>İlk Check-in</h3><span class="rarity r-common">Yaygın</span></button></li>
+      </ul>
+      <div class="sticker-detail" id="stickerDetail" aria-live="polite">
+        <h3>Bir etiket seç</h3>
+        <p class="muted">Etiketler mekana, günün saatine, serine ya da keşfettiğin semtlere göre açılır.</p>
+      </div>
+    </div>
+    <p class="sticker-more hand">+37 etiket daha uygulamada seni bekliyor.</p>
+  </div>
+</section>
+
+<!-- ============ GÜNLÜK SERİ ============ -->
+<section class="section" id="seri" aria-labelledby="seri-baslik">
+  <div class="wrap streak-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow">Günlük Seri</p>
+        <h2 id="seri-baslik">Günde bir check-in. <span class="hand">Sürdürmeye değer bir alışkanlık.</span></h2>
+        <p class="lead">Her şey momentumla ilgili. Günde bir kez göster kendini, serinin yükseldiğini izle. Hayat araya girerse Seri Freeze hakkını kullan: seri donar, emeğin kaybolmaz.</p>
+      </div>
+      <div class="streak-facts">
+        <div><b>5</b><span>Kilometre taşı</span></div>
+        <div><b>365</b><span>Gün: bir yıllık efsane</span></div>
+        <div><b>🧊</b><span>Seri Freeze hakkı</span></div>
+      </div>
+    </div>
+    <div class="paper streak-card" data-reveal>
+      <div class="streak-top">
+        <div>
+          <span class="mono" style="color:var(--muted)">Güncel Serin</span>
+          <div class="streak-count"><span id="streakNum">14</span><small>gün</small></div>
+        </div>
+        <div style="text-align:right">
+          <span class="mono" style="color:var(--muted)">Sonraki Hedef</span>
+          <div class="hand" style="font-size:1.5rem">30 Gün · 16 gün kaldı</div>
+        </div>
+      </div>
+      <div class="cal" id="cal" aria-hidden="true"></div>
+      <div class="cal-legend"><span>✗ check-in yapılan gün</span><span>🧊 freeze kullanıldı</span><span>▢ bugün</span></div>
+      <ol class="milestones" aria-label="Seri kilometre taşları">
+        <li><div class="ms reached">7</div><span>7 Gün</span></li>
+        <li><div class="ms">30</div><span>30 Gün</span></li>
+        <li><div class="ms">50</div><span>50 Gün</span></li>
+        <li><div class="ms">100</div><span>100 Gün</span></li>
+        <li><div class="ms">1Y</div><span>1 Yıl</span></li>
+      </ol>
+      <p class="sample-note">Örnek seri takvimi.</p>
+    </div>
+  </div>
+</section>
+
+<svg class="trail" data-trail viewBox="0 0 520 120" aria-hidden="true"></svg>
+
+<!-- ============ ARKADAŞ HAREKETLERİ ============ -->
+<section class="section" id="arkadaslar" aria-labelledby="arkadas-baslik">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Arkadaş Hareketleri</p>
+      <h2 id="arkadas-baslik">Güvendiğin insanlar <span class="hand">üzerinden keşfet.</span></h2>
+      <p class="lead">Gerçek mekanların ve gerçek fotoğrafların sessiz bir akışı — beğeni yok, filtre yok, sadece arkadaşlarının gerçekten gittiği yerler.</p>
+    </div>
+    <div class="friends-grid">
+      <article class="paper friend tape" data-reveal>
+        <div class="friend-head"><span class="avatar" aria-hidden="true">Z</span><p>Zeynep <b>Kaş</b>'a ulaştı</p></div>
+        <blockquote>"Buradaki su inanılmaz. Gelirken geçirdiğin her saate değiyor."</blockquote>
+      </article>
+      <article class="paper friend" data-reveal>
+        <div class="friend-head"><span class="avatar" aria-hidden="true">B</span><p>Burak <b>14 günlük seride</b></p></div>
+        <p class="sub">Bu sabah Galata Kulesi'nde check-in yaptı.</p>
+      </article>
+      <article class="paper friend" data-reveal>
+        <svg class="crown" viewBox="0 0 48 40" aria-hidden="true"><use href="#i-crown"/></svg>
+        <div class="friend-head"><span class="avatar" aria-hidden="true">S</span><p>Selin <b>Safranbolu Konakları</b>'nın müdavimi oldu</p></div>
+        <p class="sub">Bu ay 5 ziyaret — henüz kimse yakalayamadı.</p>
+      </article>
+      <article class="paper friend tape" data-reveal>
+        <div class="friend-head"><span class="avatar" aria-hidden="true">C</span><p>Can <b>seni geri takip etti</b></p></div>
+        <p class="sub">Artık Türkiye genelinde birbirinizin check-in'lerini görüyorsunuz.</p>
+      </article>
+    </div>
+    <p class="sample-note">Bu alandaki veriler örnektir.</p>
+    <p class="slogan-line hand">Gerçek anlar, <span class="u-always">gerçek yerlerde</span> birikir.</p>
+  </div>
+</section>
+
+<!-- ============ TÜRKİYE'Yİ KEŞFET ============ -->
+<section class="section" id="kesfet" aria-labelledby="kesfet-baslik">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Türkiye'yi Keşfet</p>
+      <h2 id="kesfet-baslik">Seksen bir il. <span class="hand">Evden çıkmak için bitmeyen sebepler.</span></h2>
+      <p class="lead">Haritada bir ile dokun, mavi mürekkeple tarasın. İşaretli noktalar öne çıkan mekanlar: birini seç, karakalem çizimin altından gerçek fotoğrafı çıkar.</p>
+    </div>
+    <div class="explore-grid">
+      <div class="paper map-shell">
+        <div class="map-tools">
+          <label for="ilSelect">İl seç <select id="ilSelect"><option value="">— 81 il —</option></select></label>
+          <span class="map-readout" id="mapReadout" aria-live="polite"></span>
+        </div>
+        <div class="tr-map" id="trMap"><p class="map-fallback">Harita yükleniyor…</p></div>
+        <ul class="place-chips" id="placeChips" aria-label="Öne çıkan mekanlar"></ul>
+      </div>
+      <article class="paper place-card" id="placeCard" aria-live="polite">
+        <div class="compare" id="compare">
+          <img id="cmpPhoto" src="assets/photos/kapadokya.webp" alt="" width="1200" height="800" loading="lazy">
+          <div class="sketch"><img id="cmpSketch" src="assets/photos/kapadokya.webp" alt="" width="1200" height="800" loading="lazy"></div>
+          <div class="divider"><span class="knob" aria-hidden="true">⇆</span></div>
+          <span class="lbl l" aria-hidden="true">çizim</span><span class="lbl r" aria-hidden="true">gerçek</span>
+          <input type="range" min="0" max="100" value="50" id="cmpRange" aria-label="Çizim ile fotoğraf arasında kaydır">
+        </div>
+        <span class="where" id="pcWhere">Nevşehir</span>
+        <h3 id="pcTitle">Kapadokya</h3>
+        <p id="pcText"></p>
+        <p class="credit" id="pcCredit"></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SSS ============ -->
+<section class="section" id="sss" aria-labelledby="sss-baslik">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Sıkça Sorulanlar</p>
+      <h2 id="sss-baslik">Merak ettiklerin, <span class="hand">kısa ve net.</span></h2>
+    </div>
+    <div class="faq">
+      <details class="paper">
+        <summary>Seyyah konumumu ne için kullanıyor?</summary>
+        <div class="ans"><p>Konum verilerin check-in işlemleri, yakındaki mekanların listelenmesi, rota oluşturma ve popülerlik hesaplamaları için işlenir. Konum yalnızca senin onayınla alınır ve cihaz ayarlarından istediğin zaman kapatılabilir. Verilerin üçüncü taraf reklam ağlarına satılmaz veya kiralanmaz.</p><p>Ayrıntılar: <a href="gizlilik_politikasi/">Gizlilik Politikası</a> ve <a href="kvkk/">KVKK Aydınlatma Metni</a>.</p></div>
+      </details>
+      <details class="paper">
+        <summary>GPS doğrulama nasıl çalışıyor?</summary>
+        <div class="ans"><p>Check-in, mekana yaklaşık 200 metre yakında olduğun doğrulandığında açılır; GPS sinyalinin hassasiyetine göre küçük bir tolerans uygulanır. Uzaktaysan Seyyah mesafeni gösterir. Sahte konum veya sahte check-in üretmek <a href="kullanim_sartlari/">Kullanım Şartları</a>'na aykırıdır.</p></div>
+      </details>
+      <details class="paper">
+        <summary>Seyyah ücretli mi?</summary>
+        <div class="ans"><p>Hayır. Seyyah'ı App Store ve Google Play'den ücretsiz indirip hemen keşfetmeye başlayabilirsin.</p></div>
+      </details>
+      <details class="paper">
+        <summary>Hangi cihazlarda kullanabilirim?</summary>
+        <div class="ans"><p>Seyyah iOS (iPhone ve iPad) ve Android'de çalışır. İndirme bağlantıları sayfanın sonunda.</p></div>
+      </details>
+      <details class="paper">
+        <summary>Check-in'lerimi kimler görüyor?</summary>
+        <div class="ans"><p>Normal check-in'ler arkadaş akışında paylaşılır. <strong>Gizli Check-in</strong> seçersen sadece sende görünür, akışa düşmez. <strong>Özel Not</strong>lar ise her zaman yalnızca sana özeldir, kimseyle paylaşılmaz.</p></div>
+      </details>
+      <details class="paper">
+        <summary>Hesabımı ve verilerimi nasıl silerim?</summary>
+        <div class="ans"><p>Uygulamada Profil → Ayarlar → Hesap Yönetimi → Hesabı Sil adımlarını izleyebilir ya da <a href="mailto:info@seyyah.info">info@seyyah.info</a> adresine "Hesap Silme Talebi" konulu bir e-posta gönderebilirsin. E-posta talepleri en geç 72 saat içinde işleme alınır. Tüm adımlar: <a href="veri_silme/">Veri Silme</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ İNDİR ============ -->
+<section class="section" id="indir" aria-labelledby="indir-baslik">
+  <div class="wrap">
+    <div class="paper cta-card">
+      <svg class="trail" data-trail viewBox="0 0 520 120" aria-hidden="true" style="margin:-24px auto 0"></svg>
+      <p class="eyebrow" style="justify-content:center">Bir Sonraki Yolculuğun Burada Başlıyor</p>
+      <h2 id="indir-baslik">Dışarıda seni bekleyen <span class="hand">bir dünya var.</span></h2>
+      <p class="lead">İlk yolculuğuna bugün başla — tek seferde bir gerçek check-in.</p>
+      <div class="store-buttons">
+        <a class="btn btn-primary btn-store" href="https://apps.apple.com/tr/app/seyyah-ke%C5%9Ffet-karar-ver-git/id6761266829?l=tr" rel="noopener"><svg aria-hidden="true"><use href="#i-apple"/></svg><span><small>App Store'dan</small><strong>İndir</strong></span></a>
+        <a class="btn btn-primary btn-store" href="https://play.google.com/store/apps/details?id=com.candemsoft.seyyah" rel="noopener"><svg aria-hidden="true"><use href="#i-play"/></svg><span><small>Google Play'den</small><strong>Al</strong></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="./"><img src="assets/icon.png" alt="" width="36" height="36" loading="lazy">Seyyah</a>
+      <p class="made">Evden çıkanlar için yapıldı.</p>
+      <small>© 2026 Seyyah · Candemsoft. Tüm hakları saklıdır.</small>
+      <details class="credits">
+        <summary>Fotoğraf ve harita atıfları</summary>
+        <ul id="creditList">
+          <li>Türkiye il haritası: <a href="https://github.com/dnomak/svg-turkiye-haritasi" rel="noopener">svg-turkiye-haritasi</a> (MIT, Doğukan Güven Nomak)</li>
+        </ul>
+      </details>
+    </div>
+    <nav aria-label="Alt menü">
+      <ul>
+        <li><a class="u-draw" href="gizlilik_politikasi/">Gizlilik Politikası</a></li>
+        <li><a class="u-draw" href="kullanim_sartlari/">Kullanım Şartları</a></li>
+        <li><a class="u-draw" href="kvkk/">KVKK</a></li>
+        <li><a class="u-draw" href="veri_silme/">Veri Silme</a></li>
+        <li><a class="u-draw" href="mailto:info@seyyah.info">İletişim</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/places.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

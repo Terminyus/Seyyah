@@ -1,0 +1,50 @@
+{
+  "kapadokya": {
+    "photographer": "Maxim Nevedimov",
+    "photographer_url": "https://www.pexels.com/@maxim-nevedimov-3623939",
+    "url": "https://www.pexels.com/photo/hot-air-balloons-over-cappadocia-turkey-15405169/",
+    "alt": "Colorful hot air balloons soar over the unique rock formations of Cappadocia, Turkey."
+  },
+  "pamukkale": {
+    "photographer": "ROMAN ODINTSOV",
+    "photographer_url": "https://www.pexels.com/@roman-odintsov",
+    "url": "https://www.pexels.com/photo/dry-lake-on-plains-5319469/",
+    "alt": "A stunning aerial view of Pamukkale's travertine terraces in Turkey during the day with shadows and sunlight."
+  },
+  "galata": {
+    "photographer": "Eylül Kuşdili",
+    "photographer_url": "https://www.pexels.com/@eylulkusdili",
+    "url": "https://www.pexels.com/photo/city-buildings-under-the-gray-sky-10989757/",
+    "alt": "Night view of Galata Tower amidst Istanbul's cityscape with streetlights illuminating the urban environment."
+  },
+  "nemrut": {
+    "photographer": "Onur Polat",
+    "photographer_url": "https://www.pexels.com/@onur-polat-246345106",
+    "url": "https://www.pexels.com/photo/sculptures-of-mount-nemrut-at-night-14302398/",
+    "alt": "Stunning view of ancient sculptures at Mount Nemrut, Turkey, beneath a starry night sky."
+  },
+  "kas": {
+    "photographer": "Max Renard",
+    "photographer_url": "https://www.pexels.com/@max-renard-781264499",
+    "url": "https://www.pexels.com/photo/forest-and-town-around-bay-on-sea-shore-19015514/",
+    "alt": "Scenic aerial view of Kaş harbor with yachts and Mediterranean coastline, Turkey."
+  },
+  "mardin": {
+    "photographer": "Kader Azra Namuslu",
+    "photographer_url": "https://www.pexels.com/@kadernamuslu",
+    "url": "https://www.pexels.com/photo/buildings-in-old-town-11776228/",
+    "alt": "A serene view of an ancient city with historic stone buildings under a cloudy sky."
+  },
+  "safranbolu": {
+    "photographer": "Fotoğrafınruhu .",
+    "photographer_url": "https://www.pexels.com/@fotografinruhu-301049857",
+    "url": "https://www.pexels.com/photo/residential-district-in-safranbolu-16793876/",
+    "alt": "Explore the traditional architecture of Safranbolu, Türkiye, with its historic Onceler Houses and lush greenery."
+  },
+  "uzungol": {
+    "photographer": "Zülfü Demir📸",
+    "photographer_url": "https://www.pexels.com/@zlfdmr23",
+    "url": "https://www.pexels.com/photo/scenic-view-of-uzungol-lake-and-mosque-in-fog-38735338/",
+    "alt": "Beautiful view of Uzungöl Lake and mosque in Trabzon, Türkiye, surrounded by misty mountains."
+  }
+}

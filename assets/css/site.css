@@ -271,12 +271,16 @@ p { margin: 0 0 1em; }
 .sketch-bg::before {
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: url("../sketches/turkiye-rotasi.webp") center bottom / min(1500px, 140%) auto no-repeat;
-  opacity: 0.95; mix-blend-mode: multiply;
+  opacity: 1; mix-blend-mode: multiply; filter: contrast(1.25) saturate(1.25);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 80%, transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 80%, transparent 100%);
 }
-.sketch-istanbul::before { background-image: url("../sketches/istanbul.webp"); background-position: center 85%; opacity: 0.75; }
-.sketch-karadeniz::before { background-image: url("../sketches/karadeniz-dogu.webp"); background-position: center; opacity: 0.7; }
+.sketch-istanbul::before { background-image: url("../sketches/istanbul.webp"); background-position: center 85%; }
+.sketch-karadeniz::before { background-image: url("../sketches/karadeniz-dogu.webp"); background-position: center; }
+.sketch-ege::before { background-image: url("../sketches/ege-akdeniz.webp"); background-position: center; }
+.sketch-flip::before { transform: scaleX(-1); }
+/* yazının okunduğu bölümlerde çizim biraz daha soluk */
+.sketch-soft::before { opacity: 0.7; }
 @media (max-width: 699px) { .sketch-bg::before { background-size: 220% auto; } }
 
 /* ---------- ayak izi geçişleri ---------- */
@@ -582,7 +586,8 @@ p { margin: 0 0 1em; }
 @media (min-width: 860px) { .footer-grid { grid-template-columns: 1fr auto; align-items: end; } }
 
 /* imleç mürekkep izi */
-.ink-trail { position: fixed; inset: 0; pointer-events: none; z-index: 60; }
+/* width/height şart: aksi halde tuval piksel boyutunda (dpr×) görünür ve iz imleçten kayar */
+.ink-trail { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 60; }
 
 /* ---------- yasal sayfalar ---------- */
 .legal-hero { padding: clamp(36px, 7vw, 80px) 0 28px; }

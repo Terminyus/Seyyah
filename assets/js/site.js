@@ -532,6 +532,9 @@
         if (!prov) return;
         const c = centerOf(prov, pl.fx, pl.fy);
         const pin = pinShape(c.x, c.y, 0.95, 'map-pin');
+        pin.dataset.x = c.x; pin.dataset.y = c.y;
+        // görünmez, geniş dokunma alanı
+        pin.insertBefore(svgEl('circle', { class: 'pin-hit', cx: 0, cy: -22, r: 24, fill: 'transparent' }), pin.firstChild);
         pin.setAttribute('tabindex', '0');
         pin.setAttribute('role', 'button');
         pin.setAttribute('aria-label', `${pl.name}, ${pl.where}`);
@@ -542,10 +545,19 @@
         layer.appendChild(pin);
       });
       svg.appendChild(layer);
+      // pinleri ekranda ~28 px yükseklikte tut (mobilde harita küçülünce pin de küçülmesin)
+      const sizePins = () => {
+        const k = svg.getBoundingClientRect().width / 1007;
+        if (!k) return;
+        const sc = Math.max(0.95, 28 / (41 * k));
+        $$('.map-pin', layer).forEach(g => g.setAttribute('transform', `translate(${g.dataset.x} ${g.dataset.y}) scale(${sc.toFixed(2)})`));
+      };
+      sizePins();
+      addEventListener('resize', sizePins);
       showPlace(places[0]);
       if (G) {
         G.from(provinces, { opacity: 0, duration: 0.5, stagger: { each: 0.012, from: 'random' }, scrollTrigger: { trigger: host, start: 'top 80%', once: true } });
-        G.from(layer.children, { y: -40, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'bounce.out', delay: 0.6, scrollTrigger: { trigger: host, start: 'top 80%', once: true } });
+        G.from($$('.pin-body, .pin-dot', layer), { y: -40, opacity: 0, duration: 0.6, stagger: 0.06, ease: 'bounce.out', delay: 0.6, scrollTrigger: { trigger: host, start: 'top 80%', once: true } });
       }
     }).catch(() => { host.innerHTML = '<p class="map-fallback">Harita yüklenemedi. Öne çıkan mekanları aşağıdaki düğmelerden seçebilirsin.</p>'; });
   })();

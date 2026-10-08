@@ -42,15 +42,9 @@
       <line x1="0" y1="0" x2="0" y2="6" stroke="#1f4fbf" stroke-width="1.1" stroke-opacity=".5"/>
       <line x1="0" y1="3" x2="6" y2="3" stroke="#1f4fbf" stroke-width="1.1" stroke-opacity=".5"/>
     </pattern>
-    <!-- logo motifi: sağ ayak izi (başparmak sağda) -->
-    <symbol id="foot-r" viewBox="0 0 40 62">
-      <path d="M15 60C6.5 58.5 4 48 6.8 37.5 8.6 30.8 8 24 11.6 18.8 15.6 13 26 12.6 30.2 19 34.2 25.2 32.4 33.6 30.2 41.6 27.8 50.6 24.4 61.4 15 60Z" fill="url(#hatch)" stroke="#1f4fbf" stroke-width="2"/>
-      <ellipse cx="29.5" cy="7.6" rx="5.2" ry="6.6" fill="#1f4fbf"/>
-      <circle cx="20.4" cy="5.4" r="3.4" fill="#1f4fbf"/>
-      <circle cx="13.2" cy="7.6" r="2.9" fill="#1f4fbf"/>
-      <circle cx="7.4" cy="12" r="2.4" fill="#1f4fbf"/>
-    </symbol>
-    <symbol id="foot-l" viewBox="0 0 40 62"><use href="#foot-r" transform="translate(40 0) scale(-1 1)"/></symbol>
+    <!-- logo motifi: Seyyah logosundaki ayak izi (assets/icon.png'den potrace ile vektörleştirildi) -->
+    <symbol id="foot-r" viewBox="0 0 244 323"><path fill="#1f4fbf" transform="translate(0 323) scale(.1 -.1)" d="M1948 3197 c-218 -92 -358 -390 -268 -567 25 -50 74 -89 183 -147 153 -81 271 -183 319 -277 25 -48 25 -49 98 114 209 462 194 754 -45 870 -75 36 -209 39 -287 7z M1284 3021 c-124 -56 -215 -215 -198 -343 28 -216 316 -194 423 32 35 74 38 212 5 257 -54 72 -143 93 -230 54z M785 2801 c-171 -42 -270 -297 -154 -395 80 -68 230 3 289 137 69 155 -2 290 -135 258z M340 2479 c-90 -36 -159 -175 -130 -263 36 -111 183 -80 253 54 71 135 -1 257 -123 209z M1250 2369 c-495 -55 -957 -334 -1072 -647 -37 -98 -32 -258 9 -342 64 -129 158 -216 348 -324 55 -31 103 -56 108 -56 17 0 216 -96 273 -132 233 -146 210 -348 -40 -348 -225 0 -561 212 -778 490 -32 41 -29 46 -59 -120 -30 -167 -33 -432 -5 -530 96 -347 487 -448 970 -251 348 143 663 425 748 670 36 104 33 256 -6 331 -78 151 -191 234 -503 371 -351 154 -446 276 -307 397 114 101 421 135 484 55 28 -36 26 -104 -5 -172 -30 -64 -32 -61 70 -101 238 -94 419 -251 450 -391 4 -16 10 -29 14 -29 9 0 60 115 101 229 216 593 -125 975 -800 900z"/></symbol>
+    <symbol id="foot-l" viewBox="0 0 244 323"><use href="#foot-r" width="244" height="323" transform="translate(244 0) scale(-1 1)"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.6 7-12.2A7 7 0 0 0 5 9.8C5 15.4 12 22 12 22Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9.6" r="2.6" fill="currentColor"/></symbol>
     <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.5 11h7M8.5 14.5h7M8.5 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-dir" viewBox="0 0 24 24"><path d="M12 2.8 21.2 12 12 21.2 2.8 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 14v-2.4c0-.9.6-1.4 1.4-1.4H15m-2-2 2 2-2 2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -92,7 +86,7 @@
 <main id="icerik">
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="top">
+<section class="hero sketch-bg sketch-istanbul" id="top">
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Seyyah · Gerçek Dünya Keşfi</p>
@@ -134,7 +128,7 @@
           <text x="150" y="282" class="hero-word" font-size="24">eski çarşı</text>
           <text x="300" y="132" class="hero-word" font-size="24">gün batımı ★</text>
           <!-- GPS onay damgası -->
-          <g transform="translate(206 104) rotate(-10)">
+          <g transform="translate(62 112) rotate(-10)">
             <circle data-draw class="ink" cx="44" cy="44" r="40" stroke-width="2.4"/>
             <circle data-draw class="ink ink-thin" cx="44" cy="44" r="33"/>
             <path data-draw class="ink" d="M27 45l11 11 23-25" stroke-width="4"/>
@@ -147,8 +141,8 @@
         </svg>
       </div>
       <figure class="hero-polaroid">
-        <div class="sketch" style="aspect-ratio:1" data-sketch="galata">
-          <img src="assets/photos/galata.webp" alt="" width="300" height="300" loading="eager" fetchpriority="low">
+        <div class="drawing" style="aspect-ratio:1">
+          <img src="assets/sketches/galata.webp" alt="" width="370" height="370" loading="eager" fetchpriority="low">
         </div>
         <figcaption>Galata, 09:12</figcaption>
       </figure>
@@ -335,7 +329,7 @@
       <div class="phone-stage" id="phoneStage">
         <div class="phone" role="img" aria-label="Seyyah mekan ekranı çizimi: Galata Kulesi; Buradayım, Özel Not, Yol Tarifi ve Favorile butonları, Müdavim kartı ve topluluk ziyaretçisi sayısı">
           <div class="screen" aria-hidden="true">
-            <div class="sketch screen-hero"><img src="assets/photos/galata.webp" alt="" width="400" height="260" loading="lazy"></div>
+            <div class="drawing screen-hero"><img src="assets/sketches/galata.webp" alt="" width="370" height="370" loading="lazy"></div>
             <div class="screen-body">
               <div class="screen-title"><h4>Galata Kulesi</h4><span class="badge-open" data-annot="open">Açık</span></div>
               <p class="screen-meta">Beyoğlu, İstanbul · 650 m</p>
@@ -507,35 +501,27 @@
 </section>
 
 <!-- ============ TÜRKİYE'Yİ KEŞFET ============ -->
-<section class="section" id="kesfet" aria-labelledby="kesfet-baslik">
+<section class="section sketch-bg" id="kesfet" aria-labelledby="kesfet-baslik">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Türkiye'yi Keşfet</p>
       <h2 id="kesfet-baslik">Seksen bir il. <span class="hand">Evden çıkmak için bitmeyen sebepler.</span></h2>
-      <p class="lead">Haritada bir ile dokun, mavi mürekkeple tarasın. İşaretli noktalar öne çıkan mekanlar: birini seç, karakalem çizimin altından gerçek fotoğrafı çıkar.</p>
+      <p class="lead">Haritada bir ile dokun, mavi mürekkeple tarasın. İşaretli noktalar öne çıkan mekanlar: birine dokun, hikâyesini oku.</p>
     </div>
-    <div class="explore-grid">
-      <div class="paper map-shell">
-        <div class="map-tools">
-          <label for="ilSelect">İl seç <select id="ilSelect"><option value="">— 81 il —</option></select></label>
-          <span class="map-readout" id="mapReadout" aria-live="polite"></span>
-        </div>
-        <div class="tr-map" id="trMap"><p class="map-fallback">Harita yükleniyor…</p></div>
-        <ul class="place-chips" id="placeChips" aria-label="Öne çıkan mekanlar"></ul>
+    <div class="paper map-shell">
+      <div class="map-tools">
+        <label for="ilSelect">İl seç <select id="ilSelect"><option value="">— 81 il —</option></select></label>
+        <span class="map-readout" id="mapReadout" aria-live="polite"></span>
       </div>
-      <article class="paper place-card" id="placeCard" aria-live="polite">
-        <div class="compare" id="compare">
-          <img id="cmpPhoto" src="assets/photos/kapadokya.webp" alt="" width="1200" height="800" loading="lazy">
-          <div class="sketch"><img id="cmpSketch" src="assets/photos/kapadokya.webp" alt="" width="1200" height="800" loading="lazy"></div>
-          <div class="divider"><span class="knob" aria-hidden="true">⇆</span></div>
-          <span class="lbl l" aria-hidden="true">çizim</span><span class="lbl r" aria-hidden="true">gerçek</span>
-          <input type="range" min="0" max="100" value="50" id="cmpRange" aria-label="Çizim ile fotoğraf arasında kaydır">
-        </div>
-        <span class="where" id="pcWhere">Nevşehir</span>
-        <h3 id="pcTitle">Kapadokya</h3>
-        <p id="pcText"></p>
-        <p class="credit" id="pcCredit"></p>
-      </article>
+      <div class="map-stage">
+        <div class="tr-map" id="trMap"><p class="map-fallback">Harita yükleniyor…</p></div>
+        <article class="place-note tape" id="placeCard" aria-live="polite">
+          <span class="where" id="pcWhere">Nevşehir</span>
+          <h3 id="pcTitle">Kapadokya</h3>
+          <p id="pcText"></p>
+        </article>
+      </div>
+      <ul class="place-chips" id="placeChips" aria-label="Öne çıkan mekanlar"></ul>
     </div>
   </div>
 </section>
@@ -577,7 +563,7 @@
 </section>
 
 <!-- ============ İNDİR ============ -->
-<section class="section" id="indir" aria-labelledby="indir-baslik">
+<section class="section sketch-bg sketch-karadeniz" id="indir" aria-labelledby="indir-baslik">
   <div class="wrap">
     <div class="paper cta-card">
       <svg class="trail" data-trail viewBox="0 0 520 120" aria-hidden="true" style="margin:-24px auto 0"></svg>
@@ -601,8 +587,8 @@
       <p class="made">Evden çıkanlar için yapıldı.</p>
       <small>© 2026 Seyyah · Candemsoft. Tüm hakları saklıdır.</small>
       <details class="credits">
-        <summary>Fotoğraf ve harita atıfları</summary>
-        <ul id="creditList">
+        <summary>Harita atfı</summary>
+        <ul>
           <li>Türkiye il haritası: <a href="https://github.com/dnomak/svg-turkiye-haritasi" rel="noopener">svg-turkiye-haritasi</a> (MIT, Doğukan Güven Nomak)</li>
         </ul>
       </details>

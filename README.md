@@ -19,16 +19,15 @@ veri_silme/
 assets/
   css/site.css              tema: tokenlar, bileşenler, yasal sayfa stilleri
   js/site.js                etkileşimler + kaydırma animasyonları
-  js/places.js              öne çıkan 8 mekan (metin + Pexels atfı)
+  js/places.js              öne çıkan 8 mekan (harita pinleri + not kartı)
   img/turkiye.svg           81 il haritası (MIT, dnomak/svg-turkiye-haritasi)
-  photos/*.webp             Pexels fotoğrafları (optimize edilmiş) + credits.json
+  sketches/*.webp           uygulamanın karakalem sahneleri (seyyah/assets/onboarding'den)
   stickers/*.webp           uygulamadaki etiket görselleri
   vendor/                   gsap, ScrollTrigger
   fonts/                    Caveat woff2 + lisans
 tools/
   build_legal.py            yasal sayfaları tools/legal-src'deki özgün metinlerden üretir
   build_map.py              harita kaynağından assets/img/turkiye.svg'yi üretir
-  fetch_pexels.py           Pexels fotoğraflarını indirip webp'ye çevirir
   legal-src/                seyyah.info'dan alınan özgün yasal sayfalar (metin kaynağı)
 PROMPTS.md                  üretilecek karakalem illüstrasyonların prompt'ları
 ```
@@ -45,18 +44,19 @@ python3 -m http.server 8000
 Sonra http://localhost:8000/ adresini açın. `fetch()` ile harita yüklendiği için sayfayı `file://` ile
 değil, bir sunucu üzerinden açın.
 
-## Fotoğrafları yenileme (Pexels)
+## Karakalem çizimler ve ayak izi
 
-Anahtar `.env` dosyasında durur ve `.gitignore` sayesinde repoya girmez. Anahtar istemci tarafında da
-kullanılmaz; fotoğraflar önceden indirilir.
+- `assets/sketches/` altındaki sahneler uygulamanın `assets/onboarding/bg_page*.png` çizimlerinden webp'ye
+  çevrildi: `istanbul` (hero), `turkiye-rotasi` (Keşfet), `karadeniz-dogu` (İndir), `ege-akdeniz` (yedek).
+  `galata.webp` ise İstanbul sahnesinden kırpılıp mürekkep tonu koyulaştırılmış hali (polaroid ve telefon ekranı).
+- Ayak izleri Seyyah logosunun kendisi: `assets/icon.png` potrace ile vektörleştirilip `index.html`'deki
+  `#foot-r` / `#foot-l` sembollerine kondu. Logo değişirse aynı yöntemle yeniden üretin:
 
 ```bash
-echo "PEXELS_API_KEY=..." > .env
-python3 tools/fetch_pexels.py
+potrace logo.pbm -s --flat -t 4 -O 0.4 -o logo.svg
 ```
 
-Betik tanınabilir kişi içeren kareleri eler ve fotoğrafları 1200 px webp'ye çevirir. Fotoğrafçı atıfları
-`assets/photos/credits.json` dosyasına yazılır. `places.js` bu dosyadaki atıflarla güncellenmelidir.
+Sitede dış kaynaklı fotoğraf (Pexels vb.) kullanılmıyor.
 
 ## Yasal sayfalar
 

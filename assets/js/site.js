@@ -422,42 +422,18 @@
     const readout = $('#mapReadout');
     const select = $('#ilSelect');
     const chips = $('#placeChips');
-    const cmp = $('#compare');
-    const range = $('#cmpRange');
     let pinEls = {};
     let provinces = [];
 
-    // karşılaştırma kaydırıcısı
-    const setPos = v => cmp.style.setProperty('--pos', v + '%');
-    range.addEventListener('input', () => setPos(range.value));
-    if (finePointer) {
-      cmp.addEventListener('pointermove', e => {
-        const r = cmp.getBoundingClientRect();
-        const v = Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100));
-        range.value = v;
-        setPos(v);
-      });
-    }
-
     const showPlace = (p, focusCard) => {
       if (!p) return;
-      $('#cmpPhoto').src = p.photo;
-      $('#cmpPhoto').alt = `${p.name}, ${p.where} — gerçek fotoğraf`;
-      $('#cmpSketch').src = p.photo;
       $('#pcTitle').textContent = p.name;
       $('#pcWhere').textContent = p.where;
       $('#pcText').textContent = p.text;
-      const cr = $('#pcCredit');
-      cr.textContent = 'Fotoğraf: ';
-      const a = document.createElement('a');
-      a.href = p.credit.url; a.rel = 'noopener'; a.textContent = p.credit.photographer;
-      cr.append(a, ' / Pexels');
       $$('.chip-btn', chips).forEach(c => c.setAttribute('aria-pressed', String(c.dataset.slug === p.slug)));
       Object.entries(pinEls).forEach(([s, el]) => el.classList.toggle('active', s === p.slug));
       if (G) {
-        G.fromTo('#placeCard', { opacity: 0.35, y: 10 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', clearProps: 'transform' });
-        const o = { v: 15 };
-        G.to(o, { v: 50, duration: 0.9, ease: 'power2.out', onUpdate: () => { setPos(o.v); range.value = o.v; } });
+        G.fromTo('#placeCard', { opacity: 0.3, y: 12 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', clearProps: 'transform' });
       }
       if (focusCard && innerWidth < 1000) $('#placeCard').scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'nearest' });
     };
@@ -471,15 +447,6 @@
       b.addEventListener('click', () => showPlace(p, true));
       li.appendChild(b);
       chips.appendChild(li);
-    });
-    const credits = $('#creditList');
-    places.forEach(p => {
-      const li = document.createElement('li');
-      li.append(`${p.name}: `);
-      const a = document.createElement('a');
-      a.href = p.credit.url; a.rel = 'noopener'; a.textContent = p.credit.photographer;
-      li.append(a, ' / Pexels');
-      credits.appendChild(li);
     });
     showPlace(places[0]);
 

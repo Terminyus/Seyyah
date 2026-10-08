@@ -33,9 +33,8 @@ TEMPLATE = """<!doctype html>
   <meta property="og:url" content="https://seyyah.info/{slug}">
   <meta property="og:image" content="https://seyyah.info/assets/icon.png">
   <link rel="icon" type="image/png" href="../assets/icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap">
+  <link rel="preload" href="../assets/fonts/caveat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/caveat-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/site.css">
 </head>
 <body class="legal">

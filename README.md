@@ -4,8 +4,9 @@ seyyah.info'nun yeni sürümü. Şu an yalnızca önizleme olarak yayında:
 **https://terminyus.github.io/Seyyah/**. seyyah.info'daki canlı siteye dokunulmadı.
 
 Build adımı yok: düz HTML/CSS/JS. Animasyonlar GSAP 3.12.5 + ScrollTrigger ile yapılıyor; iki dosya da
-`assets/vendor/` altında, CDN'e bağımlılık yok. Yazı tipi olarak yalnızca el yazısı için Caveat Google
-Fonts'tan yükleniyor. Başlıklar sistem fontuyla yazılıyor, uygulamayla aynı.
+`assets/vendor/` altında, CDN'e bağımlılık yok. El yazısı fontu Caveat (SIL OFL) `assets/fonts/` altında
+barındırılıyor; Türkçe karakterler için latin ve latin-ext alt kümeleri yükleniyor. Başlıklar sistem fontuyla
+yazılıyor, uygulamayla aynı.
 
 ## Yapı
 
@@ -23,6 +24,7 @@ assets/
   photos/*.webp             Pexels fotoğrafları (optimize edilmiş) + credits.json
   stickers/*.webp           uygulamadaki etiket görselleri
   vendor/                   gsap, ScrollTrigger
+  fonts/                    Caveat woff2 + lisans
 tools/
   build_legal.py            yasal sayfaları tools/legal-src'deki özgün metinlerden üretir
   build_map.py              harita kaynağından assets/img/turkiye.svg'yi üretir

@@ -269,6 +269,8 @@ p { margin: 0 0 1em; }
 /* bölüm arka planında soluk karakalem sahne */
 .sketch-bg { position: relative; }
 .sketch-bg > .wrap { z-index: 1; }
+/* arka plan çizimi, bölüm ekrana yaklaşınca yüklenir (site.js .bg-on ekler); hero hemen */
+.sketch-bg:not(.bg-on):not(.hero)::before { background-image: none !important; }
 .sketch-bg::before {
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: url("../sketches/turkiye-rotasi.webp") center bottom / min(1500px, 140%) auto no-repeat;
@@ -281,7 +283,7 @@ p { margin: 0 0 1em; }
 .sketch-ege::before { background-image: url("../sketches/ege-akdeniz.webp"); background-position: center; }
 .sketch-flip::before { transform: scaleX(-1); }
 /* yazının okunduğu bölümlerde çizim biraz daha soluk */
-.sketch-soft::before { opacity: 0.7; }
+.sketch-soft::before { opacity: 0.5; }
 @media (max-width: 699px) { .sketch-bg::before { background-size: 220% auto; } }
 
 /* ---------- ayak izi geçişleri ---------- */

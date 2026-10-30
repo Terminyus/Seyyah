@@ -32,7 +32,7 @@ TEMPLATE = """<!doctype html>
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="https://seyyah.info/{slug}">
   <meta property="og:image" content="https://seyyah.info/assets/icon.png">
-  <link rel="icon" type="image/png" href="../assets/icon.png">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="preload" href="../assets/fonts/caveat-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/caveat-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/site.css">

@@ -38,6 +38,14 @@
   };
   prepDraw();
 
+  /* ---------- arka plan çizimlerini tembel yükle ---------- */
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('bg-on'); io.unobserve(e.target); }
+    }), { rootMargin: '600px 0px' });
+    $$('.sketch-bg').forEach(el => io.observe(el));
+  } else $$('.sketch-bg').forEach(el => el.classList.add('bg-on'));
+
   /* ---------- üst menü ---------- */
   const nav = $('#nav');
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);

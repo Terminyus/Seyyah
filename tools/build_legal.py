@@ -22,8 +22,6 @@ TEMPLATE = """<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- ÖNİZLEME: canlıya (seyyah.info) geçerken bu satırı kaldırın. Bkz. README -->
-  <meta name="robots" content="noindex, nofollow">
   <title>{title}</title>
   <meta name="description" content="{desc}">
   <link rel="canonical" href="https://seyyah.info/{slug}">
@@ -102,7 +100,12 @@ def main():
         d = ROOT / slug
         d.mkdir(exist_ok=True)
         (d / 'index.html').write_text(out, encoding='utf-8')
-        print('yazıldı:', d / 'index.html')
+        # Kökte düz kopya (/gizlilik_politikasi.html): nginx `try_files $uri $uri.html`
+        # kullanıyorsa /gizlilik_politikasi adresi bunu sunar. Yollar bir üst klasöre göre değil köke göre.
+        flat = re.sub(r'(href|src)="\.\./([a-z_]+)/"', r'\1="\2"', out)
+        flat = flat.replace('href="../#', 'href="./#').replace('href="../"', 'href="./"').replace('"../assets/', '"assets/')
+        (ROOT / f'{slug}.html').write_text(flat, encoding='utf-8')
+        print('yazıldı:', d / 'index.html', '+', f'{slug}.html')
 
 
 if __name__ == '__main__':

@@ -1,7 +1,6 @@
 # Seyyah — web sitesi (mavi mürekkep karakalem teması)
 
-seyyah.info'nun yeni sürümü. Şu an yalnızca önizleme olarak yayında:
-**https://terminyus.github.io/Seyyah/**. seyyah.info'daki canlı siteye dokunulmadı.
+seyyah.info'nun yeni sürümü. Canlı: **https://seyyah.info/** · önizleme kopyası: https://terminyus.github.io/Seyyah/
 
 Build adımı yok: düz HTML/CSS/JS. Animasyonlar GSAP 3.12.5 + ScrollTrigger ile yapılıyor; iki dosya da
 `assets/vendor/` altında, CDN'e bağımlılık yok. El yazısı fontu Caveat (SIL OFL) `assets/fonts/` altında
@@ -74,12 +73,21 @@ python3 tools/build_legal.py
 `main` dalının kökünden yayınlanır (Settings → Pages → Deploy from a branch → `main` / root).
 `main`'e yapılan her push birkaç dakika içinde yayına yansır.
 
-## Canlıya (seyyah.info) geçerken
+## Canlıya yayın (seyyah.info)
 
-1. Tüm HTML dosyalarındaki `<meta name="robots" content="noindex, nofollow">` satırını kaldırın
-   (`index.html` ve `tools/build_legal.py` içindeki şablon; ardından `build_legal.py`'yi çalıştırın).
-2. Özel alan adı için repoya `CNAME` dosyası eklenir ve DNS ayarlanır. Bu iş onayla, ayrıca yapılacak.
-3. `canonical` ve `og:url` zaten https://seyyah.info'yu gösteriyor.
+Site, uygulamanın API'si ve yönetim paneliyle aynı sunucuda `/var/www/seyyah` altında durur. Bu yüzden alan
+adı GitHub Pages'e yönlendirilmez; dosyalar sunucuya kopyalanır:
+
+```bash
+tools/deploy_live.sh
+```
+
+Betik önce üzerine yazacağı dosyaların yedeğini `/var/backups/seyyah-site/<zaman>/` altına alır, sonra dosyaları
+yükler ve canlı adresleri (ana sayfa, 4 yasal sayfa, `/api/v1/health`) kontrol eder. `/api`, `/admin`,
+`seyyah_service` ve `robots.txt`'e dokunmaz. Geri almak için: `tools/deploy_live.sh --rollback <zaman>`.
+
+Yasal sayfalar hem klasör (`/kvkk/`) hem düz dosya (`/kvkk.html`) olarak üretilir; nginx hangi `try_files`
+düzenini kullanırsa kullansın eski adresler (`/kvkk`) yeni temayla açılır.
 
 ## Erişilebilirlik ve hareket
 

@@ -220,13 +220,14 @@
       routeSvg.insertBefore(defs, routeSvg.firstChild);
       const line = svgEl('path', { d, class: 'route-line', mask: 'url(#route-mask)' });
       draw.appendChild(line);
-      const labels = [['İstanbul', A, -10, -48], ['Eskişehir', B, 18, 30], ['Kapadokya', C, 20, 34]];
+      // [ad, nokta, dx, dy, hizalama] — yazılar pine, onay işaretine ve rota çizgisine binmesin
+      const labels = [['İstanbul', A, 46, -40, 'start'], ['Eskişehir', B, -20, 30, 'end'], ['Kapadokya', C, 20, 34, 'start']];
       const pins = [], checks = [];
-      labels.forEach(([name, P, lx, ly]) => {
+      labels.forEach(([name, P, lx, ly, anchor]) => {
         const pin = pinShape(P.x, P.y, 1.25, 'map-pin');
         pins.push(pin);
         draw.appendChild(pin);
-        const t = svgEl('text', { x: P.x + lx, y: P.y + ly, 'font-family': 'Caveat, cursive', 'font-size': 40, 'font-weight': 700, fill: '#0e2a6b' });
+        const t = svgEl('text', { x: P.x + lx, y: P.y + ly, 'text-anchor': anchor, 'font-family': 'Caveat, cursive', 'font-size': 40, 'font-weight': 700, fill: '#0e2a6b' });
         t.textContent = name;
         draw.appendChild(t);
         const ck = svgEl('g', { transform: `translate(${P.x + 26} ${P.y - 56})` });

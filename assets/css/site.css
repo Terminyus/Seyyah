@@ -273,14 +273,14 @@ p { margin: 0 0 1em; }
 .sketch-bg:not(.bg-on):not(.hero)::before { background-image: none !important; }
 .sketch-bg::before {
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url("../sketches/turkiye-rotasi.webp") center bottom / min(1500px, 140%) auto no-repeat;
+  background: url("../sketches/turkiye-rotasi.webp?v=202610302031") center bottom / min(1536px, 140%) auto no-repeat;
   opacity: 1; mix-blend-mode: multiply; filter: contrast(1.25) saturate(1.25);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 80%, transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 80%, transparent 100%);
 }
-.sketch-istanbul::before { background-image: url("../sketches/istanbul.webp"); background-position: center 85%; }
-.sketch-karadeniz::before { background-image: url("../sketches/karadeniz-dogu.webp"); background-position: center; }
-.sketch-ege::before { background-image: url("../sketches/ege-akdeniz.webp"); background-position: center; }
+.sketch-istanbul::before { background-image: url("../sketches/istanbul.webp?v=202610302031"); background-position: center 85%; }
+.sketch-karadeniz::before { background-image: url("../sketches/karadeniz-dogu.webp?v=202610302031"); background-position: center; }
+.sketch-ege::before { background-image: url("../sketches/ege-akdeniz.webp?v=202610302031"); background-position: center; }
 .sketch-flip::before { transform: scaleX(-1); }
 /* yazının okunduğu bölümlerde çizim biraz daha soluk */
 .sketch-soft::before { opacity: 0.5; }

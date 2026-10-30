@@ -40,7 +40,7 @@ for f in "${FILES[@]}"; do [[ -e "$f" ]] || { echo "eksik: $f"; exit 1; }; done
 
 echo "==> Paket hazırlanıyor"
 PKG="$(mktemp -d)/seyyah-site-$TS.tgz"
-COPYFILE_DISABLE=1 tar --exclude='._*' --exclude='.DS_Store' -czf "$PKG" "${FILES[@]}"
+COPYFILE_DISABLE=1 tar --no-mac-metadata --no-xattrs --exclude='._*' --exclude='.DS_Store' -czf "$PKG" "${FILES[@]}"
 scp -i "$KEY" -o BatchMode=yes -o IdentitiesOnly=yes -q "$PKG" "$SERVER:/tmp/seyyah-site-$TS.tgz"
 
 echo "==> Sunucuda yedek + kurulum"
@@ -75,8 +75,11 @@ for path in / /gizlilik_politikasi /kullanim_sartlari /kvkk /veri_silme /gizlili
   printf '  %-28s %s\n' "$path" "$code"
   [[ "$code" == 200 ]] || fail=1
 done
-curl -s "https://seyyah.info/?d=$TS" | grep -q 'Haftada bir check-in' || { echo "  ! ana sayfa yeni sürüm değil"; fail=1; }
-curl -s -L "https://seyyah.info/veri_silme?d=$TS" | grep -q 'logo-yazi.png' || { echo "  ! /veri_silme yeni temada değil (nginx eski .html'i sunuyor olabilir)"; fail=1; }
+# Not: pipefail açıkken `curl | grep -q` yanlış alarm verir (grep erken çıkınca curl SIGPIPE alır); önce gövdeyi al.
+home="$(curl -s "https://seyyah.info/?d=$TS")"
+legal="$(curl -s -L "https://seyyah.info/veri_silme?d=$TS")"
+[[ "$home" == *'Haftada bir check-in'* ]] || { echo "  ! ana sayfa yeni sürüm değil"; fail=1; }
+[[ "$legal" == *'logo-yazi.png'* ]] || { echo "  ! /veri_silme yeni temada değil (nginx eski .html'i sunuyor olabilir)"; fail=1; }
 if [[ $fail == 1 ]]; then
   echo "==> Doğrulama BAŞARISIZ. Geri almak için:  tools/deploy_live.sh --rollback $TS"
   exit 1

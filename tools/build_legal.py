@@ -41,7 +41,7 @@ TEMPLATE = """<!doctype html>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
 <header class="nav scrolled">
   <div class="wrap nav-inner">
-    <a class="brand" href="../" aria-label="Seyyah ana sayfa"><img src="../assets/icon.png" alt="" width="36" height="36">Seyyah</a>
+    <a class="brand" href="../" aria-label="Seyyah ana sayfa"><img class="brand-word" src="../assets/logo-yazi.png" alt="Seyyah" width="99" height="48"></a>
     <a class="btn btn-primary nav-cta" style="display:inline-flex;margin-left:auto" href="../#indir">Uygulamayı İndir</a>
   </div>
 </header>
@@ -60,7 +60,7 @@ TEMPLATE = """<!doctype html>
 <footer class="footer">
   <div class="wrap footer-grid">
     <div>
-      <a class="brand" href="../"><img src="../assets/icon.png" alt="" width="36" height="36" loading="lazy">Seyyah</a>
+      <a class="brand" href="../"><img class="brand-word" src="../assets/logo-yazi.png" alt="Seyyah" width="99" height="48" loading="lazy"></a>
       <p class="made">Evden çıkanlar için yapıldı.</p>
       <small>© 2026 Seyyah · Candemsoft. Tüm hakları saklıdır.</small>
     </div>

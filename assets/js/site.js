@@ -119,10 +119,10 @@
       ['E', 'Elif', 'Pamukkale', "'yi ziyaret etti", 'Denizli'],
       ['M', 'Mehmet', 'Mardin', "'i keşfetti", 'Eski Şehir'],
       ['Z', 'Zeynep', 'Kaş', "'ta Erken Kuş etiketini kazandı", 'Antalya'],
-      ['B', 'Burak', 'Galata Kulesi', "'nde serisinin 14. gününe ulaştı", 'Beyoğlu, İstanbul'],
+      ['B', 'Burak', 'Galata Kulesi', "'nde serisinin 6. haftasına ulaştı", 'Beyoğlu, İstanbul'],
       ['S', 'Selin', 'Safranbolu Konakları', "'nın müdavimi oldu", 'Karabük'],
       ['C', 'Can', 'Uzungöl', "'e ulaştı", 'Çaykara, Trabzon'],
-      ['D', 'Deniz', 'Nemrut Dağı', "'nda gün doğumunu yakaladı", 'Adıyaman'],
+      ['D', 'Deniz', 'Nemrut Dağı', "'ndan kartpostal bıraktı: buradan selamlar!", 'Adıyaman'],
       ['E', 'Ece', 'Odunpazarı', "'nda Gün Batımı Avcısı oldu", 'Eskişehir']
     ];
     const agos = ['az önce', '1 dk önce', '3 dk önce'];
@@ -271,7 +271,7 @@
       } else if (st === 'done') {
         sim.dataset.state = 'reward';
         label.textContent = 'HARİKA!';
-        if (G) G.fromTo('#simReward img', { scale: 0.2, rotate: -25, opacity: 0 }, { scale: 1, rotate: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.8)' });
+        if (G) G.fromTo('#simReward .st-medal', { scale: 0.2, rotate: -25, opacity: 0 }, { scale: 1, rotate: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.8)' });
       } else if (st === 'reward') {
         clearTimeout(timer);
         sim.dataset.state = 'idle';
@@ -376,29 +376,28 @@
     }
   })();
 
-  /* ---------- günlük seri takvimi ---------- */
+  /* ---------- haftalık seri takvimi (son 12 hafta) ---------- */
   (() => {
     const cal = $('#cal');
     if (!cal) return;
-    ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'].forEach(d => {
-      const s = document.createElement('span');
-      s.className = 'dow';
-      s.textContent = d;
-      cal.appendChild(s);
-    });
-    const checked = new Set([0, 2, 3, 5, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20]);
-    const freeze = 13, today = 20;
-    for (let i = 0; i < 28; i++) {
+    // 0..11 = son 12 hafta; 5. hafta kaçırıldı, 6–11 arası seri (8. haftada freeze), 11 = bu hafta
+    const checked = new Set([0, 1, 3, 4, 6, 7, 9, 10, 11]);
+    const freeze = 8, current = 11;
+    for (let i = 0; i < 12; i++) {
       const c = document.createElement('div');
       c.className = 'day';
-      if (i === today) c.classList.add('today');
-      if (i === freeze) { c.classList.add('freeze'); c.innerHTML = '<span>🧊</span>'; }
+      const lbl = document.createElement('small');
+      lbl.className = 'wk';
+      lbl.textContent = i === current ? 'şimdi' : `${i + 1}. hf`;
+      if (i === current) c.classList.add('today');
+      if (i === freeze) { c.classList.add('freeze'); c.insertAdjacentHTML('beforeend', '<span>🧊</span>'); }
       else if (checked.has(i)) {
         const s = svgEl('svg', { viewBox: '0 0 20 20', class: 'draw' });
         s.appendChild(svgEl('path', { class: 'ink', d: 'M4 4.5c4 3.6 8 7.4 12 11', 'stroke-width': 2.4, 'data-draw': '' }));
         s.appendChild(svgEl('path', { class: 'ink', d: 'M15.5 4c-3.8 4-7.6 7.6-11.4 12', 'stroke-width': 2.4, 'data-draw': '' }));
         c.appendChild(s);
-      } else if (i > today) c.style.opacity = '0.55';
+      }
+      c.appendChild(lbl);
       cal.appendChild(c);
     }
     prepDraw(cal);
@@ -407,9 +406,9 @@
     ScrollTrigger.create({
       trigger: cal, start: 'top 80%', once: true,
       onEnter: () => {
-        drawPaths($$('[data-draw]', cal), { duration: 0.18, stagger: 0.05 });
+        drawPaths($$('[data-draw]', cal), { duration: 0.22, stagger: 0.08 });
         const o = { v: 0 };
-        G.to(o, { v: 14, duration: 2, ease: 'power1.out', onUpdate: () => { num.textContent = Math.round(o.v); } });
+        G.to(o, { v: 6, duration: 1.6, ease: 'power1.out', onUpdate: () => { num.textContent = Math.round(o.v); } });
       }
     });
   })();

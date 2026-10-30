@@ -22,12 +22,15 @@ assets/
   js/places.js              öne çıkan 8 mekan (harita pinleri + not kartı)
   img/turkiye.svg           81 il haritası (MIT, dnomak/svg-turkiye-haritasi)
   sketches/*.webp           uygulamanın karakalem sahneleri (seyyah/assets/onboarding'den)
-  stickers/*.webp           uygulamadaki etiket görselleri
+  stickers/*.svg            uygulamanın karakalem etiketleri (45 glif + 3 nadirlik çerçevesi)
+  vignettes/*.svg           uygulamanın kategori vinyetleri
+  icon.png, logo-yazi.png   taramalı logo ve yazı logosu
   vendor/                   gsap, ScrollTrigger
   fonts/                    Caveat woff2 + lisans
 tools/
   build_legal.py            yasal sayfaları tools/legal-src'deki özgün metinlerden üretir
   build_map.py              harita kaynağından assets/img/turkiye.svg'yi üretir
+  import_app_assets.py      uygulamadan etiket, vinyet ve logoları alıp mürekkep mavisine boyar
   legal-src/                seyyah.info'dan alınan özgün yasal sayfalar (metin kaynağı)
 PROMPTS.md                  üretilecek karakalem illüstrasyonların prompt'ları
 ```

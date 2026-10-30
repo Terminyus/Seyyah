@@ -207,6 +207,7 @@ p { margin: 0 0 1em; }
 .nav-inner { display: flex; align-items: center; gap: 20px; min-height: 68px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 850; font-size: 1.3rem; color: var(--title); text-decoration: none; letter-spacing: -0.02em; }
 .brand img { width: 36px; height: 36px; }
+.brand img.brand-word { width: auto; height: 40px; }
 .nav-links { display: none; list-style: none; margin: 0 0 0 auto; padding: 0; gap: 26px; }
 .nav-links a { color: var(--title); font-weight: 650; font-size: 0.95rem; }
 .nav-cta { display: none; min-height: 44px; padding: 8px 18px; font-size: 0.92rem; }
@@ -390,7 +391,7 @@ p { margin: 0 0 1em; }
 .sim-reward { display: none; flex-direction: column; align-items: center; gap: 8px; }
 .sim[data-state="reward"] .sim-reward { display: flex; }
 .sim[data-state="reward"] .sim-radar, .sim[data-state="reward"] .sim-status { display: none; }
-.sim-reward img { width: 150px; height: 150px; filter: drop-shadow(0 6px 10px rgba(14, 42, 107, 0.22)); }
+.sim-reward .st-medal { filter: drop-shadow(0 6px 10px rgba(14, 42, 107, 0.22)); }
 .sim-reward .mono { color: var(--ink); font-weight: 700; }
 .sim-reward h4 { font-size: 1.3rem; }
 .sim-check { opacity: 0; }
@@ -413,6 +414,7 @@ p { margin: 0 0 1em; }
 .screen-title h4 { font-size: 1.05rem; }
 .badge-open { font-size: 0.66rem; font-weight: 800; color: var(--ink); border: 1.5px solid var(--ink); border-radius: 999px; padding: 1px 8px; }
 .screen-meta { color: var(--muted); font-size: 0.72rem; margin: 2px 0 10px; }
+.screen-context { margin: -6px 0 10px; font-size: 0.68rem; color: var(--ink); font-weight: 650; border-top: 1px dashed var(--ink-line); border-bottom: 1px dashed var(--ink-line); padding: 4px 0; }
 .actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
 .action { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 2px; border-radius: 12px; font-size: 0.64rem; font-weight: 750; text-align: center; line-height: 1.15; }
 .action svg { width: 20px; height: 20px; }
@@ -465,7 +467,12 @@ p { margin: 0 0 1em; }
   content: ""; position: absolute; top: 6px; left: 50%; width: 60px; height: 18px; z-index: 2;
   transform: translateX(-50%) rotate(var(--tape, -4deg)); background: rgba(220, 230, 250, 0.8);
 }
-.sticker img { width: min(132px, 100%); aspect-ratio: 1; object-fit: contain; filter: drop-shadow(1px 3px 2px rgba(14, 42, 107, 0.22)); transition: filter 0.25s ease; }
+/* uygulamadaki gibi: kâğıt daire + nadirlik çerçevesi + karakalem glif */
+.st-medal { position: relative; display: block; width: min(132px, 100%); aspect-ratio: 1; border-radius: 50%; transition: filter 0.25s ease; filter: drop-shadow(1px 3px 2px rgba(14, 42, 107, 0.18)); }
+.st-medal::before { content: ""; position: absolute; inset: 3%; border-radius: 50%; background: #fff; }
+.st-medal img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.st-medal .st-glyph { inset: 22%; width: 56%; height: 56%; }
+.st-medal.st-lg { width: 150px; }
 .sticker h3 { font-size: 0.98rem; margin-top: 4px; }
 .sticker .meta { font-size: 0.78rem; color: var(--muted); }
 .rarity { font-family: var(--f-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 9px; border-radius: 999px; border: 1.5px solid currentColor; }
@@ -473,13 +480,19 @@ p { margin: 0 0 1em; }
 .r-rare { color: var(--rare); }
 .r-epic { color: var(--epic); }
 .sticker:hover, .sticker:focus-visible, .sticker[aria-expanded="true"] { transform: rotate(var(--tilt, -3deg)) translateY(-6px); }
-.sticker[data-rarity="rare"]:hover img, .sticker[data-rarity="rare"][aria-expanded="true"] img { filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.55)); }
-.sticker[data-rarity="epic"] img { animation: shimmer 3.2s ease-in-out infinite; }
+.sticker[data-rarity="rare"]:hover .st-medal, .sticker[data-rarity="rare"][aria-expanded="true"] .st-medal { filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.55)); }
+.sticker[data-rarity="epic"] .st-medal { animation: shimmer 3.2s ease-in-out infinite; }
 @keyframes shimmer { 50% { filter: drop-shadow(0 0 12px rgba(219, 39, 119, 0.55)) drop-shadow(1px 3px 2px rgba(14, 42, 107, 0.2)); } }
 .sticker-detail { margin-top: 30px; padding: 18px 20px; border: 1.5px dashed var(--ink); border-radius: 12px; background: #fff; min-height: 84px; }
 .sticker-detail h3 { font-family: var(--f-hand); font-size: 1.6rem; color: var(--ink); letter-spacing: 0; font-weight: 700; }
 .sticker-detail p { margin: 4px 0 0; }
-.sticker-more { text-align: center; margin-top: 26px; font-size: 1.45rem; }
+.sticker-more { text-align: center; margin-top: 14px; font-size: 1.45rem; }
+.sticker-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px; margin: 34px auto 0; max-width: 900px; opacity: 0.8; }
+.sticker-strip img { width: 40px; height: 40px; }
+.vignette-strip { margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: flex-end; }
+.vignette-strip img { width: 92px; height: auto; }
+.vignette-strip figcaption { width: 100%; font-size: 1.35rem; margin-top: 4px; }
+@media (max-width: 559px) { .vignette-strip img { width: 70px; } }
 @media (min-width: 760px) { .sticker-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 /* ---------- günlük seri ---------- */
@@ -495,6 +508,12 @@ p { margin: 0 0 1em; }
 .cal .day.today { border-color: var(--ink); border-width: 2px; }
 .cal .day.freeze { background: var(--ink-soft); }
 .cal .day.freeze span { font-size: 1rem; }
+.cal.weeks { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.cal.weeks .day { aspect-ratio: 1 / 1.08; }
+.cal.weeks .day svg { inset: 10% 24% 36%; width: 52%; height: 50%; }
+.cal.weeks .day > span { margin-bottom: 14px; }
+.cal .wk { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; white-space: nowrap; overflow: hidden; font-family: var(--f-mono); font-size: 0.55rem; color: var(--muted); letter-spacing: 0.02em; }
+.cal .today .wk { color: var(--ink); font-weight: 700; }
 .cal-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 0.8rem; color: var(--muted); }
 .milestones { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; position: relative; }
 .milestones::before { content: ""; position: absolute; left: 10%; right: 10%; top: 25px; border-top: 2px dashed var(--ink-line); }
@@ -517,6 +536,11 @@ p { margin: 0 0 1em; }
 .friend-head p b { color: var(--ink); }
 .friend blockquote { margin: 0; font-family: var(--f-hand); font-size: 1.35rem; line-height: 1.25; color: var(--ink-deep); }
 .friend .sub { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.friend-card { display: grid; gap: 18px; align-items: center; background-image: var(--hatch-x); background-color: #fff; background-blend-mode: normal; }
+.friend-card > div { background: #fff; border-radius: 8px; padding: 4px 6px; }
+.friend-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+.qr-sketch { width: 120px; height: 120px; overflow: visible; background: #fff; border-radius: 12px; }
+@media (min-width: 720px) { .friend-card { grid-column: 1 / -1; grid-template-columns: 130px 1fr; transform: none !important; margin-top: 26px; } }
 .friend .crown { position: absolute; top: -18px; right: 18px; width: 44px; height: 44px; transform: rotate(10deg); overflow: visible; }
 @media (min-width: 720px) { .friends-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .friend:nth-child(even) { transform: translateY(26px) rotate(0.8deg); } .friend:nth-child(odd) { transform: rotate(-0.7deg); } }
 
@@ -569,6 +593,7 @@ p { margin: 0 0 1em; }
 .cta-card h2 { max-width: 16em; margin: 0 auto; }
 .cta-card .lead { margin: 18px auto 30px; }
 .cta-card .store-buttons { justify-content: center; }
+.cta-greet { font-size: clamp(1.5rem, 4vw, 2rem); margin: 10px 0 0; }
 .cta-board { font-size: clamp(1.9rem, 6vw, 3rem); margin-bottom: 18px; display: block; }
 .cta-board-svg { width: min(520px, 100%); height: auto; margin: 0 auto 10px; display: block; overflow: visible; }
 
@@ -634,5 +659,5 @@ p { margin: 0 0 1em; }
 /* ---------- hareket azaltma ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .sticker[data-rarity="epic"] img { animation: none; filter: drop-shadow(0 0 10px rgba(219, 39, 119, 0.45)); }
+  .sticker[data-rarity="epic"] .st-medal { animation: none; filter: drop-shadow(0 0 10px rgba(219, 39, 119, 0.45)); }
 }
